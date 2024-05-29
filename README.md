@@ -14,4 +14,4 @@ Each directory contains its own `README.md` with instructions on how to run the 
 
 ## Blog Post
 
-<!-- For a detailed explanation and context, please refer to the blog post: [Streaming Text Generation with SSE in Golang](https://devfmd.xyz/posts/) -->
+For a detailed explanation and context, please refer to the blog post: [Streaming Text Generation with SSE in Golang](https://devfmd.xyz/posts/12)
