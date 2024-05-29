@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incremental Text Streaming</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+</head>
+
+<body>
+  <div style="margin: auto; width: 70%; text-align: center;">
+    <h1>Incremental Text Streaming</h1>
+    <div id="stream"></div>
+  </div>
+  <script>
+    const streamDiv = document.querySelector('#stream');
+
+    // Create a new EventSource to receive server-sent events
+    const eventSource = new EventSource('http://localhost:8080/stream');
+
+    // Listen for incoming messages
+    eventSource.onmessage = function (event) {
+      // Append each received message to the streamDiv
+      streamDiv.innerHTML += event.data + ' ';
+    };
+
+    // Handle errors
+    eventSource.onerror = function (error) {
+      console.error('EventSource failed:', error);
+      eventSource.close();
+    };
+  </script>
+
+</body>
+
+</html>
